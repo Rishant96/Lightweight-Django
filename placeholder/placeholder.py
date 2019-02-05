@@ -8,6 +8,8 @@ DEBUG = os.environ.get('DEBUG', 'on') == 'on'
 
 SECRET_KEY = os.environ.get('SECRET_KEY', '$96jugz_+vnli0++um#6)ndrb7-a)1ex=uai9n95ppa6&zq&zv')
 
+BASE_DIR = os.path.dirname(__file__)
+
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost').split(',')
 
 settings.configure(
@@ -20,6 +22,16 @@ settings.configure(
         'django.middleware.csrf.CsrfViewMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
     ),
+    INSTALLED_APPS=(
+        'django.contrib.staticfiles'
+    ),
+    TEMPLATE_DIRS=(
+        os.path.join(BASE_DIR, 'templates'),
+    ),
+    STATICFILES_DIR=(
+        os.path.join(BASE_DIR, 'static'),
+    ), 
+    STATIC_URL='/static/',
 )
 
 from django.conf.urls import url
