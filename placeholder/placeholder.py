@@ -41,7 +41,7 @@ from django.core.wsgi import get_wsgi_application
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.views.decorators.http import etag
 
-from io import  BytesIO
+from io import BytesIO
 from PIL import Image, ImageDraw
 
 
@@ -50,7 +50,7 @@ class ImageForm(forms.Form):
 
     height = forms.IntegerField(min_value=1, max_value=2000)
     width = forms.IntegerField(min_value=1, max_value=2000)
-    
+
     def generate( self, image_format='PNG' ):
         """Generate an image of the given type and return as raw bytes."""
         height = self.cleaned_data['height']
